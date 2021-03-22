@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  {% include "./head.html" %}
+</head>
+
+<body>
+  {% include "./navbar.html" %}
+
+
+
+  <div class = "container " style="margin-top:4%;margin-bottom:4%">
+  	Add new item : 
+  	<a href="/add" class="btn green white-text waves-effect waves-teal btn-flat">Add</a>
+  	
+  	<form action ="http://localhost:5000/filter_courses" method = "POST">
+  		<table>
+   		<tr>
+   			<td>Title (words) :<input type = "text" name = "words" /></td>
+   			<td><input type = "submit" value = "Search" /></td>
+   		</tr>
+  	</form>
+
+
+  	<table border = 1 >
+
+  		<tr>
+  			<th> id </th>
+  			<th> title </th>
+  			<th> price </th>
+  			<th> discount_price </th>
+  			<th> on_discount </th>
+  		</tr>
+	    {% for value in result %}
+	    <tr>
+	       <th> {{ value['id'] }} </th>
+	       <td> {{ value['title'] }} </td>
+	       <td> {{ value['price'] }} </td>
+	       <td> {{ value['discount_price'] }} </td>
+	       <td> {{ value['on_discount'] }} </td>
+	       <td>
+	       	<form action ="/update/{{value['id']}}" method = "PUT">
+	       		<input type = "submit" value = "Update" >
+	       	</form>
+	       	
+	       </td>
+	       <td>
+	       	<form action ="/course_delete/{{value['id']}}" method = "DELETE">
+	       		<input type = "submit" value = "Delete" >
+	       	</form>
+	       	
+	       </td>
+	    </tr>
+	    {% endfor %}
+
+ 	</table>
+    
+  </div> <!--container 1 div-->
+
+
+
+  <!--JavaScript and jquery at end of body for optimized loading-->
+  <script>
+  {% include "./scripts.js" %}
+  </script>
+
+</body>
+
+</html>

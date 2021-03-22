@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  {% include "./head.html" %}
+</head>
+
+<body>
+  {% include "./navbar.html" %}
+
+  <div class = "container " style="margin-top:4%;margin-bottom:4%">
+
+    <form name="formf" action ="/course" method = "POST">
+      id:<input type = "text" name = "id" />
+      title:<input type = "text" name = "title" />
+      description:<input type = "text" name = "title" />
+      price:<input type = "text" name = "price" />
+      discount_price:<input type = "text" name = "discount_price" />
+      on_discount:<input type = "text" name = "on_discount" />
+       <input type = "submit" value = "Add" />
+    </form>
+    
+  </div> <!--container 1 div-->
+
+
+
+  <!--JavaScript and jquery at end of body for optimized loading-->
+  <script>
+  {% include "./scripts.js" %}
+  </script>
+
+</body>
+
+</html>

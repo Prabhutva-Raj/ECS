@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  {% include "./head.html" %}
+</head>
+
+<body>
+  {% include "./navbar.html" %}
+
+  <div class = "container " style="margin-top:4%;margin-bottom:4%">
+
+    <form name="formf" action ="/course_update/{{result['id']}}" method = "POST">
+      <p><b>id : {{ result['id'] }}</b></p>
+      title:<input type = "text" name = "title" placeholder="{{ result['title'] }}" />
+      description:<input type = "text" name = "description" placeholder="{{result['description']}}"/>
+      price:<input type = "text" name = "price" placeholder="{{ result['price'] }}"/>
+      discount_price:<input type = "text" name = "discount_price" placeholder="{{ result['discount_price'] }}"/>
+      on_discount:<input type = "text" name = "on_discount" placeholder="{{ result['on_discount'] }}"/>
+      <input type = "submit" value = "Update" />
+      
+    </form>
+    
+  </div> <!--container 1 div-->
+
+
+
+  <!--JavaScript and jquery at end of body for optimized loading-->
+  <script>
+  {% include "./scripts.js" %}
+  </script>
+
+</body>
+
+</html>
